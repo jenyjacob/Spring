@@ -1,0 +1,88 @@
+package com.mock.entity;
+
+import java.time.LocalDate;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table (name = "participant")
+public class Participants {
+      @Id
+      @GeneratedValue (strategy = GenerationType.IDENTITY)
+	 private Integer participantId;
+	 private String name;
+	 private String emaild;
+	 private String gender;
+	 private LocalDate registrationDate;
+	 @ManyToOne (cascade = CascadeType.ALL)
+	 @JoinColumn(name = "event_id")
+	 private Events event;
+	public Integer getParticipantId() {
+		return participantId;
+	}
+	public void setParticipantId(Integer participantId) {
+		this.participantId = participantId;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getEmaild() {
+		return emaild;
+	}
+	public void setEmaild(String emaild) {
+		this.emaild = emaild;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	public LocalDate getRegistrationDate() {
+		return registrationDate;
+	}
+	public void setRegistrationDate(LocalDate registrationDate) {
+		this.registrationDate = registrationDate;
+	}
+	public Events getEvent() {
+		return event;
+	}
+	public void setEvent(Events event) {
+		this.event = event;
+	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((emaild == null) ? 0 : emaild.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Participants other = (Participants) obj;
+		if (emaild == null) {
+			if (other.emaild != null)
+				return false;
+		} else if (!emaild.equals(other.emaild))
+			return false;
+		return true;
+	}
+	 
+	 
+}

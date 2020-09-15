@@ -1,0 +1,21 @@
+package com.mock.service;
+
+import java.util.List;
+
+import com.mock.dto.ParticipantDTO;
+
+public class EventServiceImpl implements EventService {
+
+	@Override
+	public List<ParticipantDTO> getParticipantsByEventVenue(String venue) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ParticipantDTO registerParticipant(ParticipantDTO participantDTO) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

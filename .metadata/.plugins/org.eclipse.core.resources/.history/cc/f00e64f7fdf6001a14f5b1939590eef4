@@ -1,0 +1,27 @@
+package com.mock.entity;
+
+import java.time.LocalDate;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table (name = "participant")
+public class Participants {
+      @Id
+      @GeneratedValue (strategy = GenerationType.IDENTITY)
+	 private Integer participantId;
+	 private String name;
+	 private String emaild;
+	 private String gender;
+	 private LocalDate registrationDate;
+	 @ManyToOne (cascade = CascadeType.ALL)
+	 @JoinColumn(name = "event_id")
+	 private Event event;
+}

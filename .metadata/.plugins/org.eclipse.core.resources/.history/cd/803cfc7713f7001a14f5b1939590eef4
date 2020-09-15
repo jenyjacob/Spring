@@ -1,0 +1,73 @@
+package com.mock.entity;
+
+import java.time.LocalDate;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "events")
+public class Event {
+	@Id
+	private Integer eventId;
+	private String name;
+	private LocalDate eventDate;
+	private String venue;
+	private Integer maxCount;
+	public Integer getEventId() {
+		return eventId;
+	}
+	public void setEventId(Integer eventId) {
+		this.eventId = eventId;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public LocalDate getEventDate() {
+		return eventDate;
+	}
+	public void setEventDate(LocalDate eventDate) {
+		this.eventDate = eventDate;
+	}
+	public String getVenue() {
+		return venue;
+	}
+	public void setVenue(String venue) {
+		this.venue = venue;
+	}
+	public Integer getMaxCount() {
+		return maxCount;
+	}
+	public void setMaxCount(Integer maxCount) {
+		this.maxCount = maxCount;
+	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((eventId == null) ? 0 : eventId.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Events other = (Events) obj;
+		if (eventId == null) {
+			if (other.eventId != null)
+				return false;
+		} else if (!eventId.equals(other.eventId))
+			return false;
+		return true;
+	}
+
+	
+}

@@ -1,0 +1,13 @@
+package com.mock.repository;
+
+import java.util.List;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.mock.entity.Event;
+import com.mock.entity.Participants;
+
+public interface ParticipantRepository extends CrudRepository<Participants, Integer> {
+
+	List<Participants> findByEvent(Event event);
+}
